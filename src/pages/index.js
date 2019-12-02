@@ -17,7 +17,10 @@ export default () => {
       <p>
         <span>
           Built with Gatsby and MDX -
-          <a href="https://github.com/kylefloros/portfolio"> Repo</a>
+          <a href="https://github.com/kylefloros/portfolio" target="_blank">
+            {" "}
+            Repo
+          </a>
         </span>
       </p>
     </Layout>
