@@ -14,6 +14,12 @@ export default () => {
       <h3>Web dev project portfolio and notes</h3>
       <h3>Under construction [2019-12-01]</h3>
       <PostList posts={posts}></PostList>
+      <p>
+        <span>
+          Built with Gatsby and MDX -
+          <a href="https://github.com/kylefloros/portfolio"> Repo</a>
+        </span>
+      </p>
     </Layout>
   )
 }
