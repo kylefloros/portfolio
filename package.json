@@ -14,13 +14,19 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@mdx-js/mdx": "^1.5.1",
+    "@mdx-js/react": "^1.5.1",
     "gatsby": "^2.18.4",
     "gatsby-cli": "^2.8.14",
+    "gatsby-plugin-mdx": "^1.0.58",
+    "gatsby-plugin-postcss": "^2.1.16",
+    "gatsby-source-filesystem": "^2.1.39",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "tailwindcss": "^1.1.4"
   },
   "repository": {
     "type": "git",
