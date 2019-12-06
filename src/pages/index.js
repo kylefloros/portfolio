@@ -9,7 +9,9 @@ import _ from "lodash"
 export default () => {
   const response = useStaticQuery(getContent)
   const posts = response.allMdx.edges
-  const [numBars, setNumBars] = React.useState(4)
+  const [numBars, setNumBars] = React.useState(
+    typeof window !== undefined ? Math.floor((window.innerWidth - 274) / 48) : 0
+  )
   React.useEffect(() => {
     function handleResize() {
       if (typeof window !== undefined) {
@@ -45,6 +47,7 @@ export default () => {
               className="no-underline"
               href="https://github.com/kylefloros/portfolio"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {" "}
               Repo
