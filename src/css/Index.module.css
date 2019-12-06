@@ -1,0 +1,29 @@
+.wrapper {
+  /* margin: 8px 0 8px 40px; */
+  width: 100vw;
+}
+
+.title {
+  min-width: 240px;
+}
+
+.topWrapper {
+  display: flex;
+}
+.parallelogramWrapper {
+  display: flex;
+  overflow: hidden;
+  /* margin: 8px 0 8px 20px; */
+}
+
+.parallelogram {
+  clip-path: polygon(60% 0, 100% 0%, 40% 100%, 0% 100%);
+  background: #de541e;
+  height: 74px;
+  width: 48px;
+}
+
+.rail {
+  background: #3f3f37;
+  height: 16px;
+}

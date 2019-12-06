@@ -2,32 +2,61 @@ import React from "react"
 import Layout from "../components/Layout"
 import PostList from "../components/PostList"
 import { graphql, useStaticQuery } from "gatsby"
-
+import indexStyles from "../css/Index.module.css"
 import "../css/global.css"
+import _ from "lodash"
 
 export default () => {
-  const response = useStaticQuery(getPosts)
+  const response = useStaticQuery(getContent)
   const posts = response.allMdx.edges
+  const [numBars, setNumBars] = React.useState(
+    Math.floor((window.innerWidth - 274) / 48)
+  )
+  React.useEffect(() => {
+    function handleResize() {
+      setNumBars(Math.floor((window.innerWidth - 274) / 48))
+    }
+    window.addEventListener("resize", handleResize)
+
+    return () => window.removeEventListener("resize", handleResize)
+  })
   return (
     <Layout>
-      <h1>Kyle Floros</h1>
-      <h3>Web dev project portfolio and notes</h3>
-      <h3>Under construction [2019-12-01]</h3>
-      <PostList posts={posts}></PostList>
-      <p>
-        <span>
-          Built with Gatsby and MDX -
-          <a href="https://github.com/kylefloros/portfolio" target="_blank">
-            {" "}
-            Repo
-          </a>
-        </span>
-      </p>
+      <div className={indexStyles.wrapper}>
+        <div className="flex my-2">
+          <div className={"mr-6 " + indexStyles.title}>
+            <h1 className="text-2xl pt-2 pl-2 m-0">Kyle Floros</h1>
+            <h2 className="text-base pt-2 pl-2 m-0">
+              Web Dev Projects & Notes
+            </h2>
+          </div>
+          <div className="flex">
+            {_.times(numBars, i => {
+              return <div key={i} className={indexStyles.parallelogram}></div>
+            })}
+          </div>
+        </div>
+        <div className="bg-tgray-400 mx-2 h-4"></div>
+        <PostList posts={posts}></PostList>
+        <p>
+          <span>
+            Built with Gatsby and MDX -
+            <a
+              className="no-underline"
+              href="https://github.com/kylefloros/portfolio"
+              target="_blank"
+            >
+              {" "}
+              Repo
+            </a>
+          </span>
+        </p>
+      </div>
     </Layout>
   )
 }
 
-const getPosts = graphql`
+const getContent = graphql`
   {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       totalCount
