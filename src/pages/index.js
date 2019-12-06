@@ -10,11 +10,13 @@ export default () => {
   const response = useStaticQuery(getContent)
   const posts = response.allMdx.edges
   const [numBars, setNumBars] = React.useState(
-    typeof window !== undefined ? Math.floor((window.innerWidth - 274) / 48) : 0
+    typeof window !== "undefined"
+      ? Math.floor((window.innerWidth - 274) / 48)
+      : 0
   )
   React.useEffect(() => {
     function handleResize() {
-      if (typeof window !== undefined) {
+      if (typeof window !== "undefined") {
         setNumBars(Math.floor((window.innerWidth - 274) / 48))
       }
     }
