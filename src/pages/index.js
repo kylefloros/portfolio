@@ -9,12 +9,12 @@ import _ from "lodash"
 export default () => {
   const response = useStaticQuery(getContent)
   const posts = response.allMdx.edges
-  const [numBars, setNumBars] = React.useState(
-    Math.floor((window.innerWidth - 274) / 48)
-  )
+  const [numBars, setNumBars] = React.useState(4)
   React.useEffect(() => {
     function handleResize() {
-      setNumBars(Math.floor((window.innerWidth - 274) / 48))
+      if (typeof window !== undefined) {
+        setNumBars(Math.floor((window.innerWidth - 274) / 48))
+      }
     }
     window.addEventListener("resize", handleResize)
 
