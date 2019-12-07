@@ -1,14 +1,13 @@
 import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/Layout"
 
 export default function postTemplate({ data }) {
   const { title, date } = data.mdx.frontmatter
   const { body } = data.mdx
 
   return (
-    <Layout>
+    <>
       <section>
         <Link to="/">Back to all posts</Link>
         <div>
@@ -19,7 +18,7 @@ export default function postTemplate({ data }) {
           <MDXRenderer>{body}</MDXRenderer>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 
