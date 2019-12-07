@@ -5,7 +5,8 @@ export default function PostCard({ post }) {
   const { title, date, slug } = post.childMdx.frontmatter
   return (
     <Link
-      className="w-9/10 md:w-1/3 lg:w-1/4 p-2 m-2 shadow-lg bg-ktan-400 text-black no-underline  
+      className="w-9/10 md:w-2/5 lg:w-1/3 p-2 m-2 shadow-lg 
+      bg-ktan-400 text-black no-underline  
       rounded border-solid border-2 border-tgray-400"
       to={slug}
     >

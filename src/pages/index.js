@@ -71,37 +71,37 @@ export default () => {
       </div>
 
       <div className="flex justify-center">
-        <div className="flex flex-col w-9/10  mt-1">
+        <div className="w-9/10">
           {/* Projects */}
-          <h1 className="text-2xl">Projects:</h1>
-          <div>
+          <div className="flex flex-col mt-4">
+            <h1 className="text-2xl">Projects:</h1>
             <ProjectList projects={projects}></ProjectList>
           </div>
 
           {/* Posts */}
-          <div className="mt-4">
+          <div className="flex flex-col mt-4">
             <h1 className="text-2xl">Notes:</h1>
-            <div>
-              <PostList posts={posts}></PostList>
-            </div>
+            <PostList posts={posts}></PostList>
+          </div>
+          <div className="flex flex-col mt-4">
+            <p>
+              <span>
+                Built with Gatsby and MDX -
+                <a
+                  className="no-underline"
+                  href="https://github.com/kylefloros/portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Repo
+                </a>
+              </span>
+            </p>
           </div>
         </div>
       </div>
       {/* Footer */}
-      <p>
-        <span>
-          Built with Gatsby and MDX -
-          <a
-            className="no-underline"
-            href="https://github.com/kylefloros/portfolio"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {" "}
-            Repo
-          </a>
-        </span>
-      </p>
     </>
   )
 }

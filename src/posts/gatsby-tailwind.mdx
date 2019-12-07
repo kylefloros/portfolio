@@ -4,15 +4,14 @@ slug: gatsby-tailwind
 date: 2019-12-01
 ---
 
----
-
 # Getting tailwind installed
 
 1. Used the Option #1: PostCSS route [here](https://www.gatsbyjs.org/docs/tailwind-css/)
-2. Just add a global css file with the @tailwind directives to layout comp [ref](https://dev.to/jakedohm_34/using-tailwind-with-gatsby-js-10fj)
-3. Issue - Tailwind overwrites MDX Styles
+2. Add a global css file with the @tailwind directives [ref](https://dev.to/jakedohm_34/using-tailwind-with-gatsby-js-10fj)
+3. Only included @tailwind utilities directive to prevent base tailwind styles from overwriting MDX formatting
 
 ### Notes
 
 1. See [here](https://github.com/taylorbryant/gatsby-starter-tailwind) for combining with PurgeCSS to remove unnecessary Tailwin classes from bundle
 2. See [here](https://github.com/LekoArts/gatsby-starter-portfolio-cara) for Tailwind + StyledComponents
+3. See [here](https://nystudio107.com/blog/using-tailwind-css-with-gatsby-react-emotion-styled-components) for Tailwind + Emotion no need for PurgeCSS
