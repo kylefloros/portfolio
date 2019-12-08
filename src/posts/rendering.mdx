@@ -1,14 +1,69 @@
 ---
-title: Rendering Notes
+title: Rendering Deep Dive - Working
 slug: rendering
 date: 2019-12-05
 ---
 
-TODO
+### Rendering Basics & SSR Pros/Cons
 
-### Links
+- Browser can render once it receives HTML document and corresponding CSS, and it's really good at this
+- After HTML is parsed, it will download then parse javascript files
+- _You can see slow load times if your first render is dependent upon javascript_
+- Beneficial to have meaningful HTML and CSS for the user, and use javascript as an enhancement since its loading can be deferred
+- **Problem:**
+  - Javascript frameworks are powerful but tie up rendering code with javascript resulting in a slow first render
+- **Pros:**
+  - SSR generates HTML version of app and sends that to the browser first while the javascript app boots up in the background. This gives the user something to see while app boots up
+- **Cons:**
+  - More work for the server.
+  - User can see app but can't interact until javascript is parsed/executed (TTI)
+- On Firebase (and I assume elsewhere) SS-Rendered HTML can be stored in CDN cache. This has a performance benefit and is less work for server.
 
-[Google Dev - Technical](https://developers.google.com/web/updates/2019/02/rendering-on-the-web)
+#### Sources
+
+1. [YouTube - Firebase - What is Server-Side Rendering? (Server-side Rendering with JavaScript Frameworks)](https://www.youtube.com/watch?v=GQzn7XRdzxY)
+
+---
+
+### SSR in React
+
+- React great for SSR because of Virtual DOM
+- Virtual DOM can be built on server, rendered to HTML string, and sent to browser
+- Virtual version on client, matches virtual version on server, so React knows not to rerender, giving a faster TTI
+  - Not sure on this... I think it's saying it sends the SS-Rendered Virtual DOM first, then the Virtual DOM gets sent again with the full javascript app, but it doesn't need to rerender at that time, which means a faster TTI
+
+#### Sources
+
+1. [YouTube - Firebase - Server-side Rendering React from Scratch! (Server-side Rendering with JavaScript Frameworks)](https://www.youtube.com/watch?v=82tZAPMHfT4&list=PLl-K7zZEsYLkbvTj8AUUCfBO7DoEHJ-ME&index=5)
+
+---
+
+### Performance Metrics
+
+- **TTFB (Time to First Byte)**:
+  - Time between user clicking link (HTTP request) and first byte being received by client's browser
+- **FP (First Paint)**:
+  - When first pixel is visible to user
+  - e.g., might be something subtle like background color
+  - May still be a long wait for content (can be a misleading metric in terms of user experience)
+- **FCP (First Contentful Paint)**:
+  - When first content is painted
+  - i.e., something defined in the DOM (text, image, canvas, etc.)
+  - Better metric than FP for user experience
+- **TTI (Time to Interactive)**:
+  - Time until page is interactive (events wired up, etc.)
+
+#### Sources
+
+1. [Google Developers - Jason Miller & Addy Osmani - Rendering on the Web](https://developers.google.com/web/updates/2019/02/rendering-on-the-web)
+2. [Wikipedia - Time to first byte](https://en.wikipedia.org/wiki/Time_to_first_byte)
+3. [GTmetrix - First Contentful Paint Explained](https://gtmetrix.com/blog/first-contentful-paint-explained/)
+
+---
+
+### To research
+
+- Package - isomorphic-fetch - "...allows to request data not only in the browser but also on the server". How is this different from built-in fetch?
 
 [Ben Awad - When Gatsby/Next/CRA](https://www.youtube.com/watch?v=VoscwJ6MGsU)
 
