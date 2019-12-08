@@ -1,24 +1,29 @@
 import React from "react"
 import PostList from "../components/PostList"
-import ProjectList from "../components/ProjectList"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import indexStyles from "../css/Index.module.css"
 import "../css/global.css"
 import _ from "lodash"
 import TwitterIcon from "../components/icons/TwitterIcon"
 import LinkedInIcon from "../components/icons/LinkedInIcon"
+import CalorieDebtGif from "../gifs/caloriedebt.gif"
+import SpotifyPlaylistToolsGif from "../gifs/playlisttools.gif"
+import JamChordsGif from "../gifs/jamchords.gif"
+import CalorieDebt from "../components/projects/CalorieDebt"
+import SpotifyPlaylistTools from "../components/projects/SpotifyPlaylistTools"
+import JamChords from "../components/projects/JamChords"
 
 const width = 280
 
 export default () => {
-  const response = useStaticQuery(getContent)
-  const posts = response.posts.edges
-  const projects = response.projects.edges
+  const response = useStaticQuery(getPosts)
+  const posts = response.allMdx.edges
   const [numBars, setNumBars] = React.useState(
     typeof window !== "undefined"
       ? Math.floor((window.innerWidth - width) / 48)
       : 0
   )
+  const [selectedProject, setSelectedProject] = React.useState("calorie-debt")
   React.useEffect(() => {
     function handleResize() {
       if (typeof window !== "undefined") {
@@ -65,21 +70,34 @@ export default () => {
         >
           <TwitterIcon />
         </a>
-        <button className="text-lg bg-tgray-400 text-ktan-200 h-12 w-24 rounded border-none mt-4 ml-3 font-bold">
+        <Link to="/resume" className="flex justify-center items-center text-lg bg-tgray-400 text-ktan-200 h-12 w-24 rounded border-none mt-4 ml-3 no-underline font-bold">
           Resume
-        </button>
+        </Link>
       </div>
-
       <div className="flex justify-center">
         <div className="w-9/10">
           {/* Projects */}
-          <div className="flex flex-col mt-4">
-            <h1 className="text-2xl">Projects:</h1>
-            <ProjectList projects={projects}></ProjectList>
+          <h1 className="text-2xl">Projects:</h1>
+          <div className="flex">
+            <div className="w-full md:w-1/2 lg:w-2/5">
+              <CalorieDebt setSelectedProject={setSelectedProject} selectedProject={selectedProject} />
+              <SpotifyPlaylistTools setSelectedProject={setSelectedProject} selectedProject={selectedProject} />                            
+              <JamChords setSelectedProject={setSelectedProject} selectedProject={selectedProject} />
+            </div>
+            <div className="hidden md:inline mt-2 ml-8 lg:ml-12 xl:ml-20">
+              { 
+                selectedProject === "calorie-debt" && <img className="w-5/6 rounded" src={CalorieDebtGif} alt="Calorie Debt Preview"></img>                
+              }
+              {
+                selectedProject === "spotify-playlist-tools" && <img className="w-5/6  rounded" src={SpotifyPlaylistToolsGif} alt="Spotify Playlist Tools Preview"></img>
+              }
+              {
+                selectedProject === "jam-chords" && <img className="w-5/6  rounded" src={JamChordsGif} alt="Jam Chords Preview"></img>
+              }
+            </div>
           </div>
-
           {/* Posts */}
-          <div className="flex flex-col mt-4">
+          <div className="flex flex-col mt-8">
             <h1 className="text-2xl">Notes:</h1>
             <PostList posts={posts}></PostList>
           </div>
@@ -106,34 +124,16 @@ export default () => {
   )
 }
 
-const getContent = graphql`
+const getPosts = graphql`
   {
-    projects: allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      totalCount
       edges {
         node {
-          sourceInstanceName
-          absolutePath
-          childMdx {
-            frontmatter {
-              date(formatString: "MMM Do, YYYY")
-              slug
-              title
-            }
-          }
-        }
-      }
-    }
-    posts: allFile(filter: { sourceInstanceName: { eq: "posts" } }) {
-      edges {
-        node {
-          sourceInstanceName
-          absolutePath
-          childMdx {
-            frontmatter {
-              date(formatString: "MMM Do, YYYY")
-              slug
-              title
-            }
+          frontmatter {
+            title
+            slug
+            date(formatString: "MMM Do, YYYY")
           }
         }
       }

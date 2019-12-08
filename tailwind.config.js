@@ -6,6 +6,8 @@ module.exports = {
         "ktan-200": "#E1E1C6",
         "tgray-400": "#3f3f37",
         "torange-400": "#de541e",
+        "torange-600": "#A23E16",
+        react: "#00D8FF",
       },
       screens: {
         xxl: "1500px",

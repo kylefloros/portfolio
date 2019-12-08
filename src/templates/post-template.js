@@ -8,12 +8,14 @@ export default function postTemplate({ data }) {
 
   return (
     <>
-      <section>
-        <Link to="/">Back to all posts</Link>
+      <section className="p-8">
         <div>
           <h1>{title}</h1>
           <h4>{date}</h4>
         </div>
+        <Link className="flex justify-center items-center w-32 p-2 mb-8 shadow-lg 
+      bg-ktan-400 text-black no-underline  
+      rounded border-solid border-2 border-tgray-400" to="/">Back</Link>
         <div>
           <MDXRenderer>{body}</MDXRenderer>
         </div>
