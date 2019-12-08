@@ -12,6 +12,7 @@ import JamChordsGif from "../gifs/jamchords.gif"
 import CalorieDebt from "../components/projects/CalorieDebt"
 import SpotifyPlaylistTools from "../components/projects/SpotifyPlaylistTools"
 import JamChords from "../components/projects/JamChords"
+import { Helmet } from "react-helmet"
 
 const width = 280
 
@@ -23,7 +24,7 @@ export default () => {
       ? Math.floor((window.innerWidth - width) / 48)
       : 0
   )
-  const [selectedProject, setSelectedProject] = React.useState("calorie-debt")
+  const [selectedProject, setSelectedProject] = React.useState("")
   React.useEffect(() => {
     function handleResize() {
       if (typeof window !== "undefined") {
@@ -36,6 +37,11 @@ export default () => {
   })
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Kyle's Portfolio</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       {/* Header */}
       <div className="flex m-2">
         <div className="mt-3 ml-2 mr-6">
@@ -70,7 +76,10 @@ export default () => {
         >
           <TwitterIcon />
         </a>
-        <Link to="/resume" className="flex justify-center items-center text-lg bg-tgray-400 text-ktan-200 h-12 w-24 rounded border-none mt-4 ml-3 no-underline font-bold">
+        <Link
+          to="/resume"
+          className="font-sans flex justify-center items-center text-lg bg-tgray-400 text-ktan-200 h-12 w-24 rounded border-none mt-4 ml-3 no-underline font-bold"
+        >
           Resume
         </Link>
       </div>
@@ -80,20 +89,41 @@ export default () => {
           <h1 className="text-2xl">Projects:</h1>
           <div className="flex">
             <div className="w-full md:w-1/2 lg:w-2/5">
-              <CalorieDebt setSelectedProject={setSelectedProject} selectedProject={selectedProject} />
-              <SpotifyPlaylistTools setSelectedProject={setSelectedProject} selectedProject={selectedProject} />                            
-              <JamChords setSelectedProject={setSelectedProject} selectedProject={selectedProject} />
+              <CalorieDebt
+                setSelectedProject={setSelectedProject}
+                selectedProject={selectedProject}
+              />
+              <SpotifyPlaylistTools
+                setSelectedProject={setSelectedProject}
+                selectedProject={selectedProject}
+              />
+              <JamChords
+                setSelectedProject={setSelectedProject}
+                selectedProject={selectedProject}
+              />
             </div>
             <div className="hidden md:inline mt-2 ml-8 lg:ml-12 xl:ml-20">
-              { 
-                selectedProject === "calorie-debt" && <img className="w-5/6 rounded" src={CalorieDebtGif} alt="Calorie Debt Preview"></img>                
-              }
-              {
-                selectedProject === "spotify-playlist-tools" && <img className="w-5/6  rounded" src={SpotifyPlaylistToolsGif} alt="Spotify Playlist Tools Preview"></img>
-              }
-              {
-                selectedProject === "jam-chords" && <img className="w-5/6  rounded" src={JamChordsGif} alt="Jam Chords Preview"></img>
-              }
+              {selectedProject === "calorie-debt" && (
+                <img
+                  className="w-5/6 rounded"
+                  src={CalorieDebtGif}
+                  alt="Calorie Debt Preview"
+                ></img>
+              )}
+              {selectedProject === "spotify-playlist-tools" && (
+                <img
+                  className="w-5/6  rounded"
+                  src={SpotifyPlaylistToolsGif}
+                  alt="Spotify Playlist Tools Preview"
+                ></img>
+              )}
+              {selectedProject === "jam-chords" && (
+                <img
+                  className="w-5/6  rounded"
+                  src={JamChordsGif}
+                  alt="Jam Chords Preview"
+                ></img>
+              )}
             </div>
           </div>
           {/* Posts */}

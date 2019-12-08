@@ -19,37 +19,11 @@ module.exports = {
         display: `standalone`,
         lang: `en`,
         icon: `src/images/icon.png`,
-        icons: [
-          {
-            src: `images/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `images/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
-          {
-            src: `images/apple-touch-icon.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `images/favicon-16x16.png`,
-            sizes: `16x16`,
-            type: `image/png`,
-          },
-          {
-            src: `images/favicon-32x32-icon.png`,
-            sizes: `32x32`,
-            type: `image/png`,
-          },
-        ],
       },
     },
     `gatsby-plugin-mdx`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-lodash`,
+    `gatsby-plugin-react-helmet`,
   ],
 }
