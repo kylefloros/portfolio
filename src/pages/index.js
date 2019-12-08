@@ -40,7 +40,6 @@ export default () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Kyle's Portfolio</title>
-        <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       {/* Header */}
       <div className="flex m-2">
