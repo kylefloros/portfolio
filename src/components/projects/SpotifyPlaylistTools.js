@@ -56,9 +56,9 @@ export default ({ selectedProject, setSelectedProject }) => {
             discography to a new or existing Spotify playlist. There are filters
             for album type (regular album, single, compilation), live albums,
             remixes, and more. In the Spotify app you have to drag each album
-            over one by one--which can be painful if the artist has many albums.
-            I like using this when exploring a new artist, so I can quickly add
-            all their songs to a playlist and hit shuffle.
+            over one by one and well... that sucks if they have a huge
+            discography. I like using this when exploring a new artist, so I can
+            quickly add all their songs to a playlist.
           </p>
           <div className="flex">
             <VueIcon />
