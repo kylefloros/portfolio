@@ -6,9 +6,6 @@ import "../css/global.css"
 import _ from "lodash"
 import TwitterIcon from "../components/icons/TwitterIcon"
 import LinkedInIcon from "../components/icons/LinkedInIcon"
-import CalorieDebtGif from "../gifs/caloriedebt.gif"
-import SpotifyPlaylistToolsGif from "../gifs/playlisttools.gif"
-import JamChordsGif from "../gifs/jamchords.gif"
 import CalorieDebt from "../components/projects/CalorieDebt"
 import SpotifyPlaylistTools from "../components/projects/SpotifyPlaylistTools"
 import JamChords from "../components/projects/JamChords"
@@ -82,12 +79,25 @@ export default () => {
           Resume
         </Link>
       </div>
+
       <div className="flex justify-center">
-        <div className="w-9/10">
+        <div className="flex flex-col w-9/10">
+          <div className="w-9/10 md:w-card ml-1">
+            <p>
+              Hi, I'm Kyle. I've been working in systems integratations in
+              central Wisconsin (SSIS, Biztalk, C#, PL/SQL, TSQL, REST) for five
+              years, but I'm considering shifting into web development
+              full-time. I developed C# MVC web applications at a student job
+              several years ago, and have been getting back into web in my free
+              time. I've been focusing on React, GraphQL, and Gatsby so far, and
+              AWS is next for 2020! Feel free to contact me on Twitter or
+              LinkedIn.
+            </p>
+          </div>
           {/* Projects */}
-          <h1 className="text-2xl">Projects:</h1>
-          <div className="flex">
-            <div className="w-full md:w-1/2 lg:w-2/5">
+          <div className="flex flex-col w-full md:w-card mt-5">
+            <h1 className="text-2xl">Projects:</h1>
+            <div className="w-full">
               <CalorieDebt
                 setSelectedProject={setSelectedProject}
                 selectedProject={selectedProject}
@@ -101,36 +111,14 @@ export default () => {
                 selectedProject={selectedProject}
               />
             </div>
-            <div className="hidden md:inline mt-2 ml-8 lg:ml-12 xl:ml-20">
-              {selectedProject === "calorie-debt" && (
-                <img
-                  className="w-5/6 rounded"
-                  src={CalorieDebtGif}
-                  alt="Calorie Debt Preview"
-                ></img>
-              )}
-              {selectedProject === "spotify-playlist-tools" && (
-                <img
-                  className="w-5/6  rounded"
-                  src={SpotifyPlaylistToolsGif}
-                  alt="Spotify Playlist Tools Preview"
-                ></img>
-              )}
-              {selectedProject === "jam-chords" && (
-                <img
-                  className="w-5/6  rounded"
-                  src={JamChordsGif}
-                  alt="Jam Chords Preview"
-                ></img>
-              )}
-            </div>
           </div>
           {/* Posts */}
-          <div className="flex flex-col mt-8">
+          <div className="flex flex-col w-full md:w-card mt-12">
             <h1 className="text-2xl">Notes:</h1>
             <PostList posts={posts}></PostList>
           </div>
-          <div className="flex flex-col mt-4">
+          {/* Footer */}
+          <div className="flex flex-col mt-8">
             <p>
               <span>
                 Built with Gatsby and MDX -
@@ -148,7 +136,6 @@ export default () => {
           </div>
         </div>
       </div>
-      {/* Footer */}
     </>
   )
 }

@@ -16,6 +16,7 @@ module.exports = {
       },
       width: {
         "9/10": "90%",
+        card: "600px",
       },
     },
   },
