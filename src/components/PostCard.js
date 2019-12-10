@@ -5,7 +5,7 @@ export default function PostCard({ post }) {
   const { title, date, slug } = post.frontmatter
   return (
     <Link
-      className="p-2 m-2 shadow-lg bg-ktan-400 text-black no-underline rounded border-solid border-2 border-tgray-400"
+      className="p-2 m-2 shadow-lg bg-ktan-400 hover:bg-ktan-600 text-black no-underline rounded border-solid border-2 border-tgray-400"
       to={"/" + slug}
     >
       <h2 className="text-lg my-1">{title}</h2>

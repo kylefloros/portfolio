@@ -3,6 +3,7 @@ module.exports = {
     extend: {
       colors: {
         "ktan-400": "#878472",
+        "ktan-600": "#6F6D5E",
         "ktan-200": "#E1E1C6",
         "tgray-400": "#3f3f37",
         "torange-400": "#de541e",

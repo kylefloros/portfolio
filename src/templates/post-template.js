@@ -20,8 +20,8 @@ export default function postTemplate({ data }) {
         </div>
         <Link
           className="flex justify-center items-center w-32 p-2 mb-8 shadow-lg 
-      bg-ktan-400 text-black no-underline  
-      rounded border-solid border-2 border-tgray-400"
+      bg-ktan-400 text-black no-underline text-lg font-bold
+      rounded border-solid border-2 border-tgray-400 hover:bg-ktan-600"
           to="/"
         >
           Back
