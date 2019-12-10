@@ -72,12 +72,12 @@ export default () => {
         >
           <TwitterIcon />
         </a>
-        <Link
+        {/* <Link
           to="/resume"
           className="font-sans flex justify-center items-center text-lg bg-tgray-400 text-ktan-200 h-12 w-24 rounded border-none mt-4 ml-3 no-underline font-bold"
         >
           Resume
-        </Link>
+        </Link> */}
       </div>
 
       <div className="flex justify-center">
