@@ -32,11 +32,7 @@ export default ({ selectedProject, setSelectedProject }) => {
       {selectedProject === "calorie-debt" && (
         <div className="w-full ml-4">
           <div className="flex">
-            <button
-              className="p-2 m-2 shadow-lg 
-          bg-ktan-400 text-black   
-          rounded border-solid border-2 border-tgray-400 font-bold"
-            >
+            <button className="p-2 m-2 shadow-lg bg-ktan-400 text-black hover:bg-ktan-600 rounded border-solid border-2 border-tgray-400 font-bold">
               <a
                 className="no-underline text-black text-lg"
                 href="https://caloriedebt.com/"
@@ -48,7 +44,7 @@ export default ({ selectedProject, setSelectedProject }) => {
             </button>
             <button
               onClick={() => setShowGif(!showGif)}
-              className="p-2 m-2 shadow-lg bg-ktan-400 text-black rounded border-solid border-2 border-tgray-400 font-bold no-underline text-black text-lg"
+              className="p-2 m-2 shadow-lg bg-ktan-400 text-black rounded border-solid border-2 border-tgray-400 font-bold no-underline text-black text-lg hover:bg-ktan-600 cursor-pointer"
             >
               Preview
             </button>
