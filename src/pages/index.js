@@ -84,13 +84,11 @@ export default () => {
         <div className="flex flex-col w-9/10">
           <div className="w-9/10 md:w-card ml-1">
             <p>
-              Hi, I'm Kyle. I've been working in system integratations in
-              central Wisconsin (SSIS, Biztalk, C#, PL/SQL, TSQL, REST) for five
-              years, but I'm considering shifting into web development
-              full-time. I developed C# MVC web applications at a student job
-              several years ago, and have been getting back into web in my free
-              time. I've been focusing on React, GraphQL, and Gatsby so far. AWS
-              is next for 2020! Feel free to contact me on Twitter or LinkedIn.
+              Hi, I'm Kyle. I have been working in system integratations for a
+              global electronics manufacturer for several years, but I am
+              interested in transitioning to web development full-time. I've
+              been focusing on React, GraphQL, and Gatsby. Here are a few of my
+              side projects. DM me on Twitter or LinkedIn!
             </p>
           </div>
           {/* Projects */}
