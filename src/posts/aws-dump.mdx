@@ -16,9 +16,88 @@ Working through [Udemy - Max Schwarzmüller - AWS Serverless APIs & Apps - A Com
 
 ### API Gateway
 
+- API keys available, useful if other devs will use (i.e., Google Maps)
+- Not important if just using API for our own app. Could still grab from dev tools and abuse. Use auth.
+- Usage Plan
+  - Can limit other devs to X calls per Y
+- Custom Domain available.
+- Client Certificates
+  - If forwarding requests to another HTTP endpoint, to make sure request is coming from your endpoint
+- Settings
+  - No permissions by default
+  - Need permissions for log for example
+- Always have to choose deploy to make live, need to select stage
+
+- API Selected
+
+  - Resources
+    - Development here
+  - Stages
+    - Read-only
+  - Authorizers
+  - Models
+    - Shape data
+
+- Test API with GET endpoint selected
+  - Grab path from stages, append to end, hits this endpoint
+  - Diagram
+    - Can TEST on the left
+    - Method Request
+      - How should requests look that hit this endpoint?
+      - Auth (Can block here)
+      - Validate for:
+        - Query params
+        - Headers
+        - Body
+        - API key if required
+    - Integration Request
+      - Can transform header, metadata, body and/or pass on to endpoint
+    - Hits End Point
+    - Integration Response
+      - Configure responses (http codes, map content)
+    - Method Response
+      - Define shape of response (codes again? headers, will never block the response)
+      - Must define header here for it to be able to be available in Integration Response
+
+### Creating First APIs 
+- Configure as proxy resource checkbox  
+    - This could be used to run fullstack app... forward all requests to node app thats in lambda  
+- CORS - SPA running on example.com, no server-side code - API on another server - SPA can't access API by default, different server - API server needs to return certain headers so browser knows it's safe to access data - Need OPTIONS endpoint (method like GET POST) to handle Chrome's preflight request and sent right headers
+- "Preflight Request" sent ahead of time to see if resource is there and available
+- When POSTing, can hit lambda, forward to another HTTP, fire another AWS Service
+- Use Lambda Proxy Integration: Will pass all header/body/auth as JSON to lambda, have to extract and send back response manually (more lambda less API gateway)
+
+### Creating First Lambda
+- Triggers
+- Permissions
+- Handler
+    - Will look for index file, handler function as entry point, won't just run all code
+- Env Vars
+- Tags (analytics, bills)
+- Execution Role
+- Basic Settings 
+    - Timeout
+- Debugging and error handling
+- Comparison
+- Using promise, callback, first param is error or null in our case
+
+### IAM
+
+- Identity & Access Management
+- Groups
+- Users
+- Roles
+  - No service has permission to access other services by default. E.g., if want EC2 to access S3
+- Policy
+
 ### Lambda
 
-- Execute code
+- Execute code based on trigger
+    - S3 file upload... compress photo, ML etc
+    - CloudWatch (scheduled)
+    - API Gateway
+- Fun Node, Python, Java, C#
+- Result: Interact with other AWS Services then Return Response
 
 ### DynamoDB
 

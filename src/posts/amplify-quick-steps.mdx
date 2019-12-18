@@ -1,0 +1,59 @@
+---
+title: Amplify - Quick Start
+slug: amplify-quick-start
+date: 2019-12-14
+---
+
+Quick steps
+
+- create react app and clear garbage
+- (linked to tachyons for this tut)
+- amplify init
+- obv options
+- AWS prof? Yes
+- Choose prof... default (in this case)
+- amplify add api
+- obv options
+- Cognito
+- Default
+- Follow options, edit GraphQL schema
+- amplify push (this is where it broke before)
+- obv options
+- graphql mutations/queries/subs in src now
+- npm i aws-amplify aws-amplify-react
+
+aws-amplify package that allows us to interact with our aws resources - Make requests to api - Auth users
+
+aws-amplify-react - Useful react components
+
+Add this to index:
+import Amplify from 'aws-amplify'
+import aws_exports from './aws-exports'
+Amplify.configure(aws_exports)
+
+Add this to App:
+export default withAuthenticator(App, { includeGreetings: true});
+HOC, detect users auth state, update UI, if signed in see component, else see sign up/in form
+
+Go to localhost sign up a user
+
+Adding @auth
+amplify update api
+
+amplify add hosting
+for CRA: index.html for both
+
+amplify publish
+
+To get hosting endpoint
+amplify status
+
+#### Directives
+
+@connection - Used to link GraphQL types - If named, then bi-directional - If unnamed, then one-way
+
+@auth -
+
+@model - Creates table for this type in the DB - Can set which queries, mutations, subscriptions needed
+
+@searchable - Elastisearch
