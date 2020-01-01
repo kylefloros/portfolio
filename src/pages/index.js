@@ -84,7 +84,7 @@ export default () => {
         <div className="flex flex-col w-9/10">
           <div className="w-9/10 md:w-card ml-1">
             <p>
-              Hi, I'm Kyle.  I am a software developer at Plexus Corp in Wisconsin working on the system integrations team.  I've been learning web development in my free time and focusing on React and GraphQL lately. Feel free to DM me on Twitter or LinkedIn!
+              Hi, I'm Kyle.  I am a software developer on the system integrations team at Plexus Corp in Neenah, Wisconsin. I've been learning web development in my free time and built this Gatsby site to keep all my side projects in one place. React and GraphQL are my main interests, but I like following along on Twitter and messing around with whatever's hot and new.  A lot has changed since my student job writing C# MVC / jQuery apps in the early 2010s! Feel free to message me on Twitter or LinkedIn!
             </p>
           </div>
           {/* Projects */}
@@ -127,7 +127,7 @@ export default () => {
           <div className="flex flex-col mt-8">
             <p>
               <span>
-                Built with Gatsby and MDX -
+                Built with Gatsby -
                 <a
                   className="no-underline"
                   href="https://github.com/kylefloros/portfolio"
