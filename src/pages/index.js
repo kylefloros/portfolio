@@ -84,16 +84,12 @@ export default () => {
         <div className="flex flex-col w-9/10">
           <div className="w-9/10 md:w-card ml-1">
             <p>
-              Hi, I'm Kyle. I have been working in system integratations for a
-              global electronics manufacturer for several years, but I am
-              interested in transitioning to web development full-time. I've
-              been focusing on React, GraphQL, and Gatsby. Here are a few of my
-              side projects. DM me on Twitter or LinkedIn!
+              Hi, I'm Kyle.  I am a software developer at Plexus Corp in Wisconsin working on the system integrations team.  I've been learning web development in my free time and focusing on React and GraphQL lately. Feel free to DM me on Twitter or LinkedIn!
             </p>
           </div>
           {/* Projects */}
           <div className="flex flex-col w-full md:w-card mt-5">
-            <h1 className="text-2xl">Projects:</h1>
+            <h1 className="text-2xl">Web Dev Projects:</h1>
             <div className="w-full">
               <CalorieDebt
                 setSelectedProject={setSelectedProject}
@@ -109,8 +105,21 @@ export default () => {
               />
             </div>
           </div>
+          <div className="flex flex-col w-full md:w-card mt-10">
+            <h1 className="text-2xl">Procreate Projects:</h1>
+            
+       <a
+          className="no-underline p-2 m-2 shadow-lg bg-purple-600 hover:bg-purple-700 text-black no-underline rounded border-solid border-2 border-tgray-400"
+          href="https://www.instagram.com/kylefloros"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 className="text-lg my-1">View on Instagram</h2>
+      <div className="text-base">instagram.com/kylefloros</div>
+        </a>
+          </div>
           {/* Posts */}
-          <div className="flex flex-col w-full md:w-card mt-12">
+          <div className="flex flex-col w-full md:w-card mt-10">
             <h1 className="text-2xl">Notes:</h1>
             <PostList posts={posts}></PostList>
           </div>

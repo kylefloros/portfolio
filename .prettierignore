@@ -2,3 +2,5 @@
 package.json
 package-lock.json
 public
+amplify-quick-steps.mdx
+*.mdx
